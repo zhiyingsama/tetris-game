@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>淇勭綏鏂柟鍧?/title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>馃</text></svg>">
+<title>俄罗斯方块</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧊</text></svg>">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -160,25 +160,25 @@
     </div>
     <div class="side-panel">
       <div class="panel-box">
-        <h3>涓嬩竴涓?/h3>
+        <h3>下一个</h3>
         <canvas id="next" width="100" height="100"></canvas>
       </div>
       <div class="panel-box">
-        <h3>寰楀垎</h3>
+        <h3>得分</h3>
         <div class="value" id="score">0</div>
       </div>
       <div class="panel-box">
-        <h3>琛屾暟</h3>
+        <h3>行数</h3>
         <div class="value" id="lines">0</div>
       </div>
       <div class="panel-box">
-        <div id="status">鎸夈€屽紑濮嬨€?/div>
+        <div id="status">按「开始」</div>
       </div>
-      <button id="startBtn">寮€濮嬫父鎴?/button>
+      <button id="startBtn">开始游戏</button>
     </div>
   </div>
   <div class="controls-hint">
-    <kbd>&larr;</kbd> <kbd>&rarr;</kbd> 绉诲姩 &nbsp; <kbd>&uarr;</kbd> 鏃嬭浆 &nbsp; <kbd>&darr;</kbd> 涓嬭惤 &nbsp; <kbd>Space</kbd> 鐩磋惤
+    <kbd>&larr;</kbd> <kbd>&rarr;</kbd> 移动 &nbsp; <kbd>&uarr;</kbd> 旋转 &nbsp; <kbd>&darr;</kbd> 下落 &nbsp; <kbd>Space</kbd> 直落
   </div>
   <div class="touch-controls">
     <div class="touch-row">
@@ -188,7 +188,7 @@
     </div>
     <div class="touch-row">
       <button class="touch-btn" data-action="down">&#9660;</button>
-      <button class="touch-btn wide" data-action="drop">鐩磋惤</button>
+      <button class="touch-btn wide" data-action="drop">直落</button>
     </div>
   </div>
 </div>
@@ -318,7 +318,7 @@ function endGame() {
   gameOver = true;
   running = false;
   if (dropInterval) { clearInterval(dropInterval); dropInterval = null; }
-  statusEl.textContent = '娓告垙缁撴潫';
+  statusEl.textContent = '游戏结束';
 }
 
 function moveLeft() {
@@ -407,7 +407,7 @@ function startGame() {
   gameOver = false; running = true;
   scoreEl.textContent = '0';
   linesEl.textContent = '0';
-  statusEl.textContent = '娓告垙涓?;
+  statusEl.textContent = '游戏中';
   nextPiece = randomPiece();
   spawnPiece();
   draw();
